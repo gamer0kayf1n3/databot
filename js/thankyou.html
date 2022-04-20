@@ -1,0 +1,35 @@
+<html>
+  <body>
+    <h1 id="editme">Thank you for inviting Data Bot!</h1>
+    <p>Hello! gamer0kayf1n3 here. Thanks for inviting my bot. This bot will stay free, so the best way you can support me is by visiting and subscribing <a href="https://www.youtube.com/channel/UCUau_fWPI8aXb7uF1JdU-gg">my channel</a>. I make cool stuff such as 3D Renders, Gaming, and coding as well. So, once again, thank you for inviting DataBot.</p>
+    <table><tr>Go back to server</tr></table>
+	<h2>Under debug mode</h2>
+	<p id="deb"></p>
+    <script>
+      var url_string = location.href;
+      var url = new URL(url_string);
+      var code = url.searchParams.get("code");
+      var guildId = url.searchParams.get("guild_id");
+
+      API_ENDPOINT = 'https://discord.com/api/v8';
+      CLIENT_ID = '900189609680597002';
+      CLIENT_SECRET = 'kSfhg5mFu6t62wPmusJQ9XJMvP3B0H-D';
+      REDIRECT_URI = 'https://databot.gamer0kayf1n3.repl.co/public_html/thankyou.html';
+
+      const webapi = new XMLHttpRequest();
+      const req_url = API_ENDPOINT + "/oauth2/token";
+      webapi.open("POST", req_url, true);
+      webapi.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded');
+	  params = {};
+	  params.client_id=CLIENT_ID;
+	  params.client_secret=CLIENT_SECRET;
+	  params.grant_type=authorization_code'
+	  params.code = code
+	  params.redirect_uri = REDIRECT_URI;
+      webapi.send(JSON.stringify(params));
+    var response = JSON.parse(webapi.responseText);
+	document.getElementById("deb").innerHTML = response
+    server_id = response.guild.id
+    </script>
+  </body>
+<html>
